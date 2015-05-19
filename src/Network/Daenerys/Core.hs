@@ -48,12 +48,11 @@ readFrom file = do
     return $ decode contents
 
 fakeRequest = InternalRequest {
-    requestUrl = "http://requestb.in/rckujwrc",
+    requestUrl = "http://httpbin/get",
     requestMethod = "GET",
     headers = Nothing
 }
 
 example = do
-    maybeRequest <- readFrom "test/examples/simple-get.json"
-    maybeResponse <- liftIO $ fmap runRequest maybeRequest
-    return maybeResponse
+    maybeRequest <- readFrom "examples/simple-get.json"
+    return maybeRequest

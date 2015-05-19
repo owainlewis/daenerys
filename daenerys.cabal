@@ -8,8 +8,7 @@ category:            Network
 build-type:          Simple
 cabal-version:       >=1.10
 
-executable daenerys
-  main-is:             Main.hs
+library
   build-depends:       base >=4.7 && <4.8,
                        http-client,
                        http-client-tls,
