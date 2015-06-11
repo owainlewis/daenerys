@@ -3,17 +3,17 @@ module Network.Daenerys.Core where
 
 import           Control.Applicative
 import           Control.Monad
+import           Control.Monad.IO.Class
+import           Control.Monad.Trans.Maybe
 import           Data.Aeson
 import qualified Data.ByteString.Char8     as BS
 import qualified Data.ByteString.Lazy      as B
 import           Data.Map
+import           Data.Maybe                (fromMaybe)
 import           Data.Text
 import qualified Data.Text.Encoding        as Encoder
 import           Network.HTTP.Client
 import           Network.HTTP.Client.TLS
-
-import           Control.Monad.IO.Class
-import           Control.Monad.Trans.Maybe
 
 data InternalRequest = InternalRequest {
     requestUrl    :: Text
@@ -36,11 +36,12 @@ buildRequest internalRequest = do
               }
     return req
 
-runRequest :: InternalRequest -> IO (Response B.ByteString)
+-- runRequest :: InternalRequest -> IO (Response B.ByteString)
+runRequest :: InternalRequest -> IO (Maybe B.ByteString)
 runRequest r = do
     request  <- buildRequest r
     response <- withManager tlsManagerSettings $ httpLbs request
-    return response
+    return $ Just $ responseBody response
 
 readFrom :: FilePath -> IO (Maybe InternalRequest)
 readFrom file = do
@@ -53,6 +54,12 @@ fakeRequest = InternalRequest {
     headers = Nothing
 }
 
-example = do
-    maybeRequest <- readFrom "examples/simple-get.json"
-    return maybeRequest
+-- TODO some dumb shit here
+
+showMaybeByteString :: Show a => Maybe a -> IO ()
+showMaybeByteString (Just x) = print x
+showMaybeByteString Nothing = print "Bad Request"
+
+runMaybeRequest :: Maybe InternalRequest -> IO (Maybe B.ByteString)
+runMaybeRequest (Just r)  = runRequest r
+runMaybeRequest (Nothing) = return $ Nothing

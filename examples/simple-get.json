@@ -1,5 +1,5 @@
 {
-    "url": "http://httpbin.org/get",
+    "url": "https://bbc.co.uk",
     "method": "GET",
     "headers": { "Content-Type":  "application/json" }
 }

@@ -1,0 +1,6 @@
+flags:
+  daenerys: {}
+packages:
+- '.'
+extra-deps: []
+resolver: lts-2.13
