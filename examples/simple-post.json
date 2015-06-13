@@ -1,0 +1,6 @@
+{
+    "url": "http://requestb.in/tyegbuty",
+    "method": "POST",
+    "headers": { "Content-Type":  "application/json" },
+    "body": "HELLO"
+}
