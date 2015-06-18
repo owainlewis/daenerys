@@ -1,6 +1,6 @@
 module Network.Daenerys.CoreSpec (main, spec) where
 
-import           Network.Daenerys.Core
+-- import           Network.Daenerys.Core
 import           Test.Hspec
 
 -- `main` is here so that this module can be run from GHCi on its own.  It is
