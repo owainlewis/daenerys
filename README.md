@@ -12,6 +12,7 @@ TODO label fields so YAML list with each request having an identifier!
 
 ```yaml
 ---
+id: bbc homepage
 url: https://bbc.co.uk
 method: GET
 headers:
