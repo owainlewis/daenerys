@@ -6,6 +6,16 @@ It lets you store complex API calls as simple JSON files. You might use it for t
 
 It is heavily inspired by the Chrome Postman extension
 
+Requests can be written in YAML or JSON
+
+```yaml
+---
+url: https://bbc.co.uk
+method: GET
+headers:
+  Content-Type: application/json
+```
+
 ## Example
 
 ```javascript
