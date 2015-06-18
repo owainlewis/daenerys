@@ -8,6 +8,8 @@ It is heavily inspired by the Chrome Postman extension
 
 Requests can be written in YAML or JSON
 
+TODO label fields so YAML list with each request having an identifier!
+
 ```yaml
 ---
 url: https://bbc.co.uk
