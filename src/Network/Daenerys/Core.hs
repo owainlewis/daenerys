@@ -31,7 +31,8 @@ transformHeaders req =
 -- | Extracts the HTTP request body from an internal request in a form suitable to dispatch
 extractBody :: InternalRequest -> RequestBody
 extractBody internalRequest = RequestBodyBS $ fromMaybe "" reqBody
-    where reqBody = encodeUtf8 `fmap` (body internalRequest)
+    where reqBody = 
+      encodeUtf8 `fmap` (body internalRequest)
 
 -- | Helper function to construct the raw HTTP request
 buildRequest :: InternalRequest -> IO Request
