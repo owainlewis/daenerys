@@ -1,0 +1,10 @@
+[{
+    "url": "https://bbc.co.uk",
+    "method": "GET",
+    "headers": { "Content-Type":  "application/json" }
+},
+{
+    "url": "https://github.com",
+    "method": "POST",
+    "headers": { "Content-Type":  "application/json" }
+}]

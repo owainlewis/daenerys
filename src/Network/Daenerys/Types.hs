@@ -5,7 +5,7 @@ import           Control.Applicative ((<$>), (<*>))
 import           Control.Monad       (mzero)
 import           Data.Aeson
 import qualified Data.ByteString     as B
-import           Data.Map            (Map (..))
+import           Data.Map            (Map (..), fromList)
 import           Data.Text
 
 data InternalRequest = InternalRequest {
@@ -28,9 +28,11 @@ instance FromJSON InternalRequest where
                         <*> v .:? "body"
    parseJSON _ = mzero
 
+type InternalRequests = [ InternalRequest ]
+
 exampleGETRequest = InternalRequest {
-    requestUrl    = "http://httpbin/get"
+    requestUrl    = "http://requestb.in/1d1a1121"
   , requestMethod = "GET"
-  , headers = Nothing
-  , body = Nothing
+  , headers = Just $ fromList [("Content-Type", "application/json")]
+  , body = Just "HELLO WORLD"
 }

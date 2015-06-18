@@ -5,7 +5,6 @@ import           Network.Daenerys.IOUtil (readFrom)
 import           System.Environment
 import           System.Exit
 
-
 runProgram :: String -> IO ()
 runProgram f = readFrom f >>= runMaybeRequest >>= printMaybeByteString
 

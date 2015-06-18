@@ -10,6 +10,6 @@ main = hspec spec
 
 spec :: Spec
 spec = do
-  describe "strip" $ do
-    it "removes leading and trailing whitespace" $ do
+  describe "Daenerys" $ do
+    it "works" $ do
       1 `shouldBe` (1 :: Int)
