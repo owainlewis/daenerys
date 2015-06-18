@@ -38,9 +38,9 @@ buildRequest :: InternalRequest -> IO Request
 buildRequest internalRequest = do
     initReq <- parseUrl . unpack $ requestUrl internalRequest
     let req = initReq
-              { method = Encoder.encodeUtf8 $ requestMethod internalRequest
+              { method         = Encoder.encodeUtf8 $ requestMethod internalRequest
               , requestHeaders = fromMaybe [] (transformHeaders internalRequest)
-              , requestBody = extractBody internalRequest
+              , requestBody    = extractBody internalRequest
               }
     return req
 
