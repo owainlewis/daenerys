@@ -32,6 +32,7 @@ executable daenerys
                        http-client,
                        http-client-tls,
                        http-types,
+                       case-insensitive,
                        aeson,
                        containers,
                        bytestring,

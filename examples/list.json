@@ -1,10 +1,10 @@
 [{
-    "url": "https://bbc.co.uk",
+    "url": "http://requestb.in/p3lsnxp3",
     "method": "GET",
     "headers": { "Content-Type":  "application/json" }
 },
 {
-    "url": "https://github.com",
+    "url": "http://requestb.in/p3lsnxp3",
     "method": "POST",
     "headers": { "Content-Type":  "application/json" }
 }]

@@ -1,12 +1,12 @@
 module Main ( main ) where
 
 import           Network.Daenerys.Core   (printMaybeByteString, runMaybeRequest)
-import           Network.Daenerys.IOUtil (readFrom)
+import           Network.Daenerys.IOUtil (readRequest, readRequests)
 import           System.Environment
 import           System.Exit
 
 runProgram :: String -> IO ()
-runProgram f = readFrom f >>= runMaybeRequest >>= printMaybeByteString
+runProgram f = readRequest f >>= runMaybeRequest >>= printMaybeByteString
 
 main :: IO ()
 main = do

@@ -13,7 +13,7 @@ import           Data.Maybe                 (fromMaybe, isJust)
 import           Data.Text
 import           Data.Text.Encoding         (encodeUtf8)
 import qualified Data.Text.Encoding         as Encoder
-import           Network.Daenerys.IOUtil    (readFrom)
+import           Network.Daenerys.IOUtil    (readRequest, readRequests)
 import           Network.Daenerys.Types
 import           Network.HTTP.Client
 import           Network.HTTP.Client.TLS
@@ -51,7 +51,7 @@ runRequest r = do
     return $ Just $ responseBody response
 
 validRequestFile :: FilePath -> IO Bool
-validRequestFile file = readFrom file >>= (return . isJust)
+validRequestFile file = readRequest file >>= (return . isJust)
 
 printMaybeByteString :: Maybe LB.ByteString -> IO ()
 printMaybeByteString = print . fromMaybe (LBS.pack "Bad Request")
