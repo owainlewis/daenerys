@@ -2,11 +2,7 @@
 
 ### Daenerys is a command line application that converts static JSON documents into executable HTTP requests.
 
-It lets you store complex API calls as simple JSON files. 
-
-You might use it for functional testing of APIs or automating complex HTTP calls.
-
-It is heavily inspired by the Chrome Postman extension
+It lets you store complex API calls as simple JSON files. You might use it for functional testing of APIs or automating complex HTTP calls.It is heavily inspired by the Chrome Postman extension
 
 Requests can be written in YAML or JSON
 
