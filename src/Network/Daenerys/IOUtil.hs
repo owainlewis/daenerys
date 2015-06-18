@@ -16,7 +16,7 @@ import           System.IO.Error        (isDoesNotExistError)
 
 -- | Try reading a file and returning the contents or return a default string
 tryFileOr :: FilePath -> String -> IO String
-tryFileOr f or = readFile f `catch` (\(e :: IOException) -> return or)
+tryFileOr f d = readFile f `catch` (\(e :: IOException) -> return d)
 
 -- | Try opening a file and decoding the JSON.
 --   If the file does not exist return Nothing else Just (contents)
