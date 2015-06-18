@@ -15,10 +15,11 @@ Requests can be written in YAML or JSON
 Lets create a text file containing a HTTP request that we can execute.
 
 ```javascript
-{ "url": "http://google.com",
-  "method": "GET",
-  "headers": "",
-  "body" : ""
+{
+    "url": "http://requestb.in/p3lsnxp3",
+    "method": "GET",
+    "headers": { "Content-Type":  "application/json" },
+    "body" : "HELLO WORLD"
 }
 ```
 
