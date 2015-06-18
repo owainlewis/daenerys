@@ -1,6 +1,6 @@
 # Daenerys
 
-Daenerys is a command line application that converts static JSON documents into executable HTTP requests.
+### Daenerys is a command line application that converts static JSON documents into executable HTTP requests.
 
 It lets you store complex API calls as simple JSON files. 
 
