@@ -13,7 +13,7 @@ import           Data.Maybe                 (fromMaybe, isJust)
 import           Data.Text
 import           Data.Text.Encoding         (encodeUtf8)
 import qualified Data.Text.Encoding         as Encoder
-import           Network.Daenerys.IOUtil    (readRequest, readRequests)
+import           Network.Daenerys.IO        (readRequest, readRequests)
 import           Network.Daenerys.Types
 import           Network.HTTP.Client
 import           Network.HTTP.Client.TLS

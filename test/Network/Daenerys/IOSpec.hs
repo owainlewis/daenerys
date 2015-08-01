@@ -1,6 +1,6 @@
-module Network.Daenerys.IOUtilSpec where
+module Network.Daenerys.IOSpec where
 
-import qualified Network.Daenerys.IOUtil as U
+import qualified Network.Daenerys.IO as IO
 import           Test.Hspec
 
 main :: IO ()
@@ -10,4 +10,4 @@ spec :: Spec
 spec = do
   describe "Daenerys IO Utils" $ do
     it "should read a valid JSON file" $ do
-      putStrLn . show $ U.readRequest "examples/simple-get.json"
+      putStrLn . show $ IO.readRequest "examples/simple-get.json"

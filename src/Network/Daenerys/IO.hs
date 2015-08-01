@@ -1,5 +1,5 @@
 {-# LANGUAGE ScopedTypeVariables #-}
-module Network.Daenerys.IOUtil
+module Network.Daenerys.IO
   ( readFrom
     -- Read a single request from file
   , readRequest
