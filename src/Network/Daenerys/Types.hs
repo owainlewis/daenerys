@@ -5,8 +5,8 @@ import           Control.Applicative ((<$>), (<*>))
 import           Control.Monad       (mzero)
 import           Data.Aeson
 import qualified Data.ByteString     as B
-import           Data.Map            (Map (..), fromList)
-import           Data.Text
+import           Data.Map            (Map)
+import           Data.Text           (Text)
 
 data InternalRequest = InternalRequest {
     requestUrl    :: Text
@@ -15,24 +15,27 @@ data InternalRequest = InternalRequest {
   , body          :: Maybe Text
 } deriving ( Eq, Ord, Show )
 
-data HTTPMethod = GET | POST | PUT | PATCH | DELETE deriving ( Eq, Ord, Show )
+data HTTPMethod =
+    GET
+  | POST
+  | PUT
+  | PATCH
+  | DELETE
+  deriving ( Eq, Ord, Show )
 
 instance FromJSON InternalRequest where
    parseJSON (Object v) =
         InternalRequest <$> v .:  "url"
--- A HTTP method
                         <*> v .:  "method"
--- Optional HTTP request headers
                         <*> v .:? "headers"
--- Optional RAW JSON body
                         <*> v .:? "body"
    parseJSON _ = mzero
 
 type InternalRequests = [ InternalRequest ]
 
-exampleGETRequest = InternalRequest {
-    requestUrl    = "http://requestb.in/1d1a1121"
-  , requestMethod = "GET"
-  , headers = Just $ fromList [("Content-Type", "application/json")]
-  , body = Just "HELLO WORLD"
+-- TODO (hook this response type up !)
+--
+data InternalResponse = InternalResponse {
+    rCode :: Int
+  , rBody :: String
 }

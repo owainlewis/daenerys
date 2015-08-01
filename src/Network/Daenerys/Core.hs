@@ -19,6 +19,8 @@ import           Network.HTTP.Client
 import           Network.HTTP.Client.TLS
 import           Network.HTTP.Types.Header  (RequestHeaders)
 
+import           Network.Daenerys.Util      as U
+
 -- | Transform the request headers from InternalRequest into HTTP Headers
 transformHeaders :: InternalRequest -> Maybe RequestHeaders
 transformHeaders req =
@@ -44,18 +46,16 @@ buildRequest internalRequest = do
               }
     return req
 
-runRequest :: InternalRequest -> IO (Maybe LB.ByteString)
+runRequest :: InternalRequest -> IO LB.ByteString
 runRequest r = do
     request  <- buildRequest r
     response <- withManager tlsManagerSettings $ httpLbs request
-    return $ Just $ responseBody response
+    let body   = responseBody response
+        status = responseStatus response
+    return body
 
 validRequestFile :: FilePath -> IO Bool
 validRequestFile file = readRequest file >>= (return . isJust)
 
 printMaybeByteString :: Maybe LB.ByteString -> IO ()
 printMaybeByteString = print . fromMaybe (LBS.pack "Bad Request")
-
-runMaybeRequest :: Maybe InternalRequest -> IO (Maybe LB.ByteString)
-runMaybeRequest (Just r)  = runRequest r
-runMaybeRequest (Nothing) = return $ Nothing
