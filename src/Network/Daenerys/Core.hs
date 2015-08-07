@@ -18,7 +18,6 @@ import           Network.Daenerys.Types
 import           Network.HTTP.Client
 import           Network.HTTP.Client.TLS
 import           Network.HTTP.Types.Header  (RequestHeaders)
-
 import           Network.Daenerys.Util      as U
 
 -- | Transform the request headers from InternalRequest into HTTP Headers
