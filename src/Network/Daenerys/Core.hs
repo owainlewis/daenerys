@@ -1,5 +1,12 @@
 {-# LANGUAGE OverloadedStrings #-}
-module Network.Daenerys.Core where
+module Network.Daenerys.Core 
+    ( transformHeaders
+    , extractBody
+    , buildRequest
+    , runRequest
+    , validRequestFile
+    , printMaybeByteString
+    ) where
 
 import           Control.Applicative        ((<$>))
 import           Control.Monad.IO.Class     (liftIO)
