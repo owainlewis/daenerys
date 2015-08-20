@@ -1,8 +1,7 @@
 module Main
   ( main
   , runProgram
-  )
-  where
+  ) where
 
 import           Control.Applicative   (pure)
 import           Network.Daenerys.Core (printMaybeByteString, runRequest)
