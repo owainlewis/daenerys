@@ -17,7 +17,7 @@ runProgram f = do
   request <- readRequest f
   case request of
     Just r  -> print . rCode =<< runRequest r
-    Nothing -> return ()
+    Nothing -> pure ()
 
 main :: IO ()
 main = do
