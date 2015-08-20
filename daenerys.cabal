@@ -45,7 +45,7 @@ executable daenerys
 test-suite spec
   ghc-options:
     -Wall
-    -Werror
+--    -Werror
   hs-source-dirs:
     src, test
   build-depends:
