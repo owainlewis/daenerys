@@ -1,5 +1,6 @@
 module Main
   ( main
+  , runProgram
   )
   where
 
