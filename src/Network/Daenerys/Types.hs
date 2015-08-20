@@ -4,7 +4,6 @@ module Network.Daenerys.Types where
 import           Control.Applicative ((<$>), (<*>))
 import           Control.Monad       (mzero)
 import           Data.Aeson
-import qualified Data.ByteString     as B
 import           Data.Map            (Map)
 import           Data.Text           (Text)
 

@@ -5,6 +5,8 @@ module Network.Daenerys.IO
   , readRequest
     -- Read a list of requests from file
   , readRequests
+    -- Util functions
+  , tryFileOr
   ) where
 
 import           Control.Exception
@@ -25,7 +27,7 @@ readFrom file = do
     e <- tryJust (guard . isDoesNotExistError) (B.readFile file)
     case e of
       Left _ -> return Nothing
-      Right contents -> return $ decode contents
+      Right contents -> return . decode $ contents
 
 -- Type aliases
 --

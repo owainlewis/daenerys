@@ -1,17 +1,18 @@
-module Main 
-  ( main 
-  ) 
+module Main
+  ( main
+  )
   where
 
-import           Network.Daenerys.Core   (printMaybeByteString, runMaybeRequest)
-import           Network.Daenerys.IOUtil (readRequest, readRequests)
+import           Control.Applicative   (pure)
+import           Network.Daenerys.Core (printMaybeByteString, runRequest)
+import           Network.Daenerys.IO   (readRequest, readRequests)
 import           System.Environment
 import           System.Exit
 
 -- | Given a filename: run the program and pretty print the response
 --
 runProgram :: String -> IO ()
-runProgram f = readRequest f >>= runMaybeRequest >>= printMaybeByteString
+runProgram f = pure ()
 
 main :: IO ()
 main = do
