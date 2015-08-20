@@ -29,10 +29,12 @@ readFrom file = do
       Left _ -> return Nothing
       Right contents -> return . decode $ contents
 
--- Type aliases
+-- | Read a single request
 --
 readRequest :: FilePath -> IO (Maybe InternalRequest)
 readRequest = readFrom
 
+-- | Read a list of requests
+--
 readRequests :: FilePath -> IO (Maybe [InternalRequest])
 readRequests = readFrom

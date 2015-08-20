@@ -15,10 +15,10 @@ import           Data.Text.Encoding         (encodeUtf8)
 import qualified Data.Text.Encoding         as Encoder
 import           Network.Daenerys.IO        (readRequest, readRequests)
 import           Network.Daenerys.Types
+import           Network.Daenerys.Util      as U
 import           Network.HTTP.Client
 import           Network.HTTP.Client.TLS
 import           Network.HTTP.Types.Header  (RequestHeaders)
-import           Network.Daenerys.Util      as U
 
 -- | Transform the request headers from InternalRequest into HTTP Headers
 transformHeaders :: InternalRequest -> Maybe RequestHeaders

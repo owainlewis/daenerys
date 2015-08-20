@@ -12,7 +12,11 @@ import           System.Exit
 -- | Given a filename: run the program and pretty print the response
 --
 runProgram :: String -> IO ()
-runProgram f = pure ()
+runProgram f = do
+  request <- readRequest f
+  case request of
+    Just r  -> print =<< runRequest r
+    Nothing -> return ()
 
 main :: IO ()
 main = do
