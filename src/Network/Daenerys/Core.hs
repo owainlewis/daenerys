@@ -19,6 +19,7 @@ import           Network.Daenerys.Util      as U
 import           Network.HTTP.Client
 import           Network.HTTP.Client.TLS
 import           Network.HTTP.Types.Header  (RequestHeaders)
+import           Network.HTTP.Types.Status  (statusCode)
 
 -- | Transform the request headers from InternalRequest into HTTP Headers
 transformHeaders :: InternalRequest -> Maybe RequestHeaders
@@ -45,13 +46,13 @@ buildRequest internalRequest = do
               }
     return req
 
-runRequest :: InternalRequest -> IO LB.ByteString
+runRequest :: InternalRequest -> IO InternalResponse
 runRequest r = do
     request  <- buildRequest r
     response <- withManager tlsManagerSettings $ httpLbs request
     let body   = responseBody response
-        status = responseStatus response
-    return body
+        status = responseStatus $ response
+    return $ InternalResponse (statusCode status) body
 
 validRequestFile :: FilePath -> IO Bool
 validRequestFile file = readRequest file >>= (return . isJust)

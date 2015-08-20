@@ -3,9 +3,10 @@ module Main
   , runProgram
   ) where
 
-import           Control.Applicative   (pure)
-import           Network.Daenerys.Core (printMaybeByteString, runRequest)
-import           Network.Daenerys.IO   (readRequest, readRequests)
+import           Control.Applicative    (pure)
+import           Network.Daenerys.Core  (printMaybeByteString, runRequest)
+import           Network.Daenerys.IO    (readRequest, readRequests)
+import           Network.Daenerys.Types (InternalResponse (..))
 import           System.Environment
 import           System.Exit
 
@@ -15,7 +16,7 @@ runProgram :: String -> IO ()
 runProgram f = do
   request <- readRequest f
   case request of
-    Just r  -> print =<< runRequest r
+    Just r  -> print . rCode =<< runRequest r
     Nothing -> return ()
 
 main :: IO ()
