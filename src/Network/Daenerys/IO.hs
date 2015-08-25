@@ -17,6 +17,7 @@ import           Network.Daenerys.Types (InternalRequest)
 import           System.IO.Error        (isDoesNotExistError)
 
 -- | Try reading a file and returning the contents or return a default string
+--
 tryFileOr :: FilePath -> String -> IO String
 tryFileOr f d = readFile f `catch` (\(e :: IOException) -> return d)
 
