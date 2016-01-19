@@ -33,8 +33,6 @@ instance FromJSON InternalRequest where
 
 type InternalRequests = [ InternalRequest ]
 
--- TODO (hook this response type up !)
---
 data InternalResponse = InternalResponse {
     rCode :: Int
   , rBody :: LB.ByteString
