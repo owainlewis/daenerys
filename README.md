@@ -4,8 +4,6 @@
 
 It lets you store complex API calls as simple JSON files. You might use it for functional testing of APIs or automating complex HTTP calls. It is heavily inspired by the Chrome Postman extension
 
-Requests can be written in YAML or JSON
-
 > ALL YOUR HTTP ARE BELONG TO JSON
 
 ![](https://s.yimg.com/os/publish-images/tv/2014-03-18/2599ab90-aead-11e3-b1dd-f95b1df1b844_Deanerys-Targaryen-white-stalion.jpg)
