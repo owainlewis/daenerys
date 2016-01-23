@@ -28,7 +28,6 @@ import           Network.HTTP.Client.TLS
 import           Network.HTTP.Types.Header  (RequestHeaders)
 import           Network.HTTP.Types.Status  (statusCode)
 
--- | Transform the request headers from InternalRequest into HTTP Headers
 transformHeaders :: InternalRequest -> Maybe RequestHeaders
 transformHeaders req =
   let packInsensitive = mk . BS.pack
@@ -37,12 +36,10 @@ transformHeaders req =
     (\ks k v ->
       (packInsensitive k, BS.pack v) : ks) [] h) <$> requestHeaders
 
--- | Extracts the HTTP request body from an internal request in a form suitable to dispatch
 extractBody :: InternalRequest -> RequestBody
 extractBody internalRequest = RequestBodyBS $ fromMaybe "" reqBody
     where reqBody = encodeUtf8 `fmap` (body internalRequest)
 
--- | Helper function to construct the raw HTTP request
 buildRequest :: InternalRequest -> IO Request
 buildRequest internalRequest = do
     initReq <- parseUrl . unpack $ requestUrl internalRequest
