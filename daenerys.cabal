@@ -11,7 +11,9 @@ cabal-version:       >=1.10
 
 library
   exposed-modules:
-    Network.Daenerys.Core
+                  Network.Daenerys.Core,
+                  Network.Daenerys.IO,
+                  Network.Daenerys.Types
   build-depends:       base >=4.7 && <4.8,
                        http-client,
                        http-client-tls,
@@ -26,20 +28,11 @@ library
   hs-source-dirs:      src
   default-language:    Haskell2010
 
-executable daenerys
+executable daenerys-exe
   main-is: Main.hs
   build-depends:       base >=4.7 && <4.8,
-                       http-client,
-                       http-client-tls,
-                       http-types,
-                       case-insensitive,
-                       aeson,
-                       containers,
-                       bytestring,
-                       text,
-                       mtl,
-                       transformers
-  hs-source-dirs:      src
+                       daenerys
+  hs-source-dirs:      app
   default-language:    Haskell2010
 
 test-suite spec

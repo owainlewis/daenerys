@@ -25,3 +25,4 @@ main = do
   case args of
     [] -> putStrLn "Missing filename"
     (x:xs) -> runProgram x
+

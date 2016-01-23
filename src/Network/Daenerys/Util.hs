@@ -7,7 +7,6 @@ import           Data.Map               (fromList)
 import           Data.Text              (Text)
 import           Network.Daenerys.Types
 
--- Build a simple HTTP GET request
 simpleGet :: Text -> InternalRequest
 simpleGet url = InternalRequest url "GET" Nothing Nothing
 
