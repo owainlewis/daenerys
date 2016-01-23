@@ -10,8 +10,6 @@ import           Network.Daenerys.Types (InternalResponse (..))
 import           System.Environment
 import           System.Exit
 
--- | Given a filename: run the program and pretty print the response
---
 runProgram :: String -> IO ()
 runProgram f = do
   request <- readRequest f
@@ -25,4 +23,3 @@ main = do
   case args of
     [] -> putStrLn "Missing filename"
     (x:xs) -> runProgram x
-
