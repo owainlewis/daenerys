@@ -26,7 +26,7 @@ Lets create a text file containing a HTTP request that we can execute.
 We can now run this from the command line so:
 
 ```
-cabal run "examples/simple-get.json"
+stack build && stack exec daenerys-exe "examples/simple-get.json"
 ```
 
 ## Low level API
